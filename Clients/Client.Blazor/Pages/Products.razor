@@ -1,0 +1,41 @@
+﻿@page "/products"
+@attribute [Authorize]
+
+<PageTitle>Products</PageTitle>
+
+<h2 class="border-bottom">Products</h2>
+
+<div class="row">
+    <div class="col-12">
+    @if (Items.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Items)
+                    {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.ProductType</td>
+                                <td>@item.ProductBrand</td>
+                                <td>@item.Price</td>
+                            </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>
+                No data found!
+            </p>
+        }
+    </div>
+</div>
